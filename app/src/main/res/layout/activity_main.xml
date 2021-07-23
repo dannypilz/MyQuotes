@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?><!--activity_main muss vorher per Click transformiert werden für Databinding!-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!--Import, damit  "View.INVISIBLE" etc. funktioniert-->
+        <import type="android.view.View" />
+        <!--erzeugen der Variable "viewmodel" vom Typ "QuoteViewModel" damit über diese alle logischen Berechnungen stattfinden können-->
+        <variable
+            name="viewmodel"
+            type="com.example.myquotes.QuoteViewModel" />
+    </data>
+
+    <!--leichtes Layout dass für zwei Dinge untereinnander geht-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/quote_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addQuote"
+            android:text="Neues Zitat" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/quote_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:isGone="@{viewmodel.hasNoQuotes}"/>
+        <!--  "android:orientation="vertical""  somit wischt man von oben nach unten und andersherum-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_quotes"
+            android:textSize="36sp"
+            app:isGone="@{!viewmodel.hasNoQuotes}"/>
+            <!--"!viewmodel.hasNoQuotes" Negation-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/quote_next"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:layout_marginBottom="16dp"-->
+        <!--            android:onClick="@{()-> viewmodel.nextQuote()}"-->
+        <!--            android:text="@string/next"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/quote_previous"-->
+        <!--            app:hideView="@{viewmodel.isLast}"/>-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/quote_previous"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="40dp"-->
+        <!--            android:onClick="@{()-> viewmodel.previousQuote()}"-->
+        <!--            android:text="@string/previous"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/quote_next"-->
+        <!--            app:layout_constraintHorizontal_bias="0.5"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="spread"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/quote_next"-->
+        <!--            app:hideView="@{viewmodel.isFirst}"/>-->
+    </LinearLayout>
+</layout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name" translatable="false">MyQuotes</string>
+    <string name="next">Nächstes</string>
+    <string name="previous">Voriges</string>
+    <string name="start">Anfang</string>
+    <string name="no_quotes">Keine Zitate</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyQuotes</string>
+    <string name="next">Nächstes</string>
+    <string name="previous">Voriges</string>
+    <string name="start">Anfang</string>
+    <string name="no_quotes">Keine Zitate</string>
+</resources>
